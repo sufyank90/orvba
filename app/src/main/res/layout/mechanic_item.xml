@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:background="@color/customDarkerGray">
+
+    <TextView
+        android:id="@+id/textMechanicName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mechanic Name"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/customWhite"
+        android:layout_centerHorizontal="true" />
+
+    <View
+        android:id="@+id/divider1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/textMechanicName"
+        android:layout_marginTop="8dp"
+        android:background="@color/customLighterGray" />
+
+    <TextView
+        android:id="@+id/textMechanicLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider1"
+        android:layout_marginTop="8dp"
+        android:text="Mechanic Location"
+        android:textSize="16sp"
+        android:textColor="@color/customLighterGray"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/textMechanicService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textMechanicLocation"
+        android:layout_marginTop="8dp"
+        android:text="Mechanic Service"
+        android:textSize="16sp"
+        android:textColor="@color/customLighterGray"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/btnConfirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textMechanicService"
+        android:layout_marginTop="16dp"
+        android:text="Confirm"
+        android:textSize="16sp"
+        android:textColor="@android:color/white"
+        android:background="@color/customLighterGray"
+        android:layout_centerHorizontal="true" />
+
+    <!-- Add more TextViews and dividers for additional details if needed -->
+
+</RelativeLayout>

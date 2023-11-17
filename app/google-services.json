@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "983575227547",
+    "firebase_url": "https://orvba-c6247-default-rtdb.firebaseio.com",
+    "project_id": "orvba-c6247",
+    "storage_bucket": "orvba-c6247.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:983575227547:android:cdf916d2369d8ed0cb6a3e",
+        "android_client_info": {
+          "package_name": "com.example.orvba"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGQrXqwvtCstuRitcgJyjE8MSRwwYwtq8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
