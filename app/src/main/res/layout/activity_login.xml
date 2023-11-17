@@ -58,19 +58,20 @@
 
 
             <EditText
-                android:id="@+id/login_username"
+                android:id="@+id/emailEt"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/levender_border"
                 android:drawableLeft="@drawable/baseline_perm_identity_24"
                 android:drawablePadding="8dp"
-                android:hint="User Name"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
                 android:padding="8dp"
                 android:textColor="@color/black" />
 
             <EditText
-                android:id="@+id/login_password"
+                android:id="@+id/passEt"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="20dp"
@@ -78,6 +79,7 @@
                 android:drawableLeft="@drawable/baseline_lock_24"
                 android:drawablePadding="8dp"
                 android:hint="Password"
+                android:inputType="textPassword"
                 android:padding="8dp"
                 android:textColor="@color/black" />
 

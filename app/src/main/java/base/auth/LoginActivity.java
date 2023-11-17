@@ -15,7 +15,11 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import base.MainActivity;
+
 import com.example.orvba.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,8 +30,8 @@ import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText loginUsername;
-    private EditText loginPassword;
+    private EditText emailEt;
+    private EditText passEt;
     private Button loginButton;
     private TextView signupRedirectText;
 
@@ -69,8 +73,8 @@ public class LoginActivity extends AppCompatActivity {
     private void initViews() {
 
         pb = findViewById(R.id.pb);
-        loginUsername = findViewById(R.id.login_username);
-        loginPassword = findViewById(R.id.login_password);
+        emailEt = findViewById(R.id.emailEt);
+        passEt = findViewById(R.id.passEt);
         loginButton = findViewById(R.id.login_button);
         signupRedirectText = findViewById(R.id.signupRedirectText);
         loginforgotPassTv = findViewById(R.id.forgotPassTv);
@@ -102,12 +106,25 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username = loginUsername.getText().toString();
-                String password = loginPassword.getText().toString();
-                if (!validateUsername() | !validatePassword()) {
-                    // Handle validation failure
+                String email = emailEt.getText().toString();
+                String password = passEt.getText().toString();
+
+                if (email.length() == 0) {
+                    Toast.makeText(LoginActivity.this, "Invalid email/password", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (password.length() < 5) {
+                    Toast.makeText(LoginActivity.this, "Invalid email/password", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+
+                if (email.equals("admin") && password.equals("admin")) {
+                    // open admin panel
+                    
                 } else {
-                    checkUser(loginUsername, loginPassword);
+                    login(email, password);
                 }
             }
         });
@@ -125,6 +142,8 @@ public class LoginActivity extends AppCompatActivity {
         loginforgotPassTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 Intent intent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
                 startActivity(intent);
                 finish();
@@ -132,89 +151,23 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public boolean validateUsername() {
-        String val = loginUsername.getText().toString();
-        if (val.isEmpty()) {
-            loginUsername.setError("Username Can Not be Empty");
-            return false;
-        } else {
-            loginUsername.setError(null);
-            return true;
-        }
-    }
+    private void login(String email, String password) {
 
-    public boolean validatePassword() {
-        String val = loginPassword.getText().toString();
-        if (val.isEmpty()) {
-            loginPassword.setError("Password Can Not be Empty");
-            return false;
-        } else {
-            loginPassword.setError(null);
-            return true;
-        }
-    }
-
-
-//        mAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-//            @Override
-//            public void onComplete(@NonNull Task<AuthResult> task) {
-//                pb.setVisibility(View.GONE);
-//                if (task.isSuccessful()) {
-//                    // User Authentication is successful.
-//                    // now goto home
-//                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-//                    startActivity(intent);
-//                    finish();
-//
-//                } else {
-//                    // If sign in fails, display a message to the user.
-//                    Toast.makeText(LoginActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
-//
-//                }
-//            }
-//        });
-
-    public void checkUser(EditText loginUsername, EditText loginPassword) {
-        String userUsername = this.loginUsername.getText().toString().toLowerCase();
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
-        Query checkUserDatabase = reference.orderByChild("username").equalTo(userUsername);
-
-        checkUserDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    LoginActivity.this.loginUsername.setError(null);
-                    String passwordFromDb = snapshot.child(userUsername).child("password").getValue(String.class);
+            public void onComplete(@NonNull Task<AuthResult> task) {
 
-                    if (passwordFromDb != null && passwordFromDb.equalsIgnoreCase(LoginActivity.this.loginPassword.getText().toString())) {
-                        LoginActivity.this.loginPassword.setError(null);
-                        // Successful login, show a toast message
-                        pb.setVisibility(View.VISIBLE);
-                        Toast.makeText(LoginActivity.this, "Login successful!", Toast.LENGTH_SHORT).show();
+                if (task.isSuccessful()) {
 
-
-                        // Redirect to the main activity
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        startActivity(intent);
-                    } else {
-                        LoginActivity.this.loginPassword.setError("Invalid UserName/Password");
-                        LoginActivity.this.loginPassword.requestFocus();
-                    }
+                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    finish();
 
                 } else {
-                    LoginActivity.this.loginUsername.setError("User Does Not Exist");
-                    LoginActivity.this.loginUsername.requestFocus();
+
+                    Toast.makeText(LoginActivity.this, "" + task.getException(), Toast.LENGTH_SHORT).show();
+
                 }
-
-            }
-
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                // Handle onCancelled
             }
         });
     }
-
-
 }
