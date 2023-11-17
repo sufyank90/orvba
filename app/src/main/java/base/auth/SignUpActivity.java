@@ -110,10 +110,12 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void signup(User user) {
+        pb.setVisibility(View.VISIBLE);
 
         mAuth.createUserWithEmailAndPassword(user.getEmail(), user.getPass()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+
                 if (task.isSuccessful()) {
 
                     // If successful write to firebase.
@@ -121,6 +123,8 @@ public class SignUpActivity extends AppCompatActivity {
                     writeToDatabase(user);
 
                 } else {
+                    pb.setVisibility(View.GONE);
+
                     Toast.makeText(SignUpActivity.this, "" + task.getException(), Toast.LENGTH_SHORT).show();
                 }
             }
@@ -136,6 +140,8 @@ public class SignUpActivity extends AppCompatActivity {
         myRef.child(user.getId()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
+                pb.setVisibility(View.GONE);
+
                 if (task.isSuccessful()) {
 
                     // go to login page

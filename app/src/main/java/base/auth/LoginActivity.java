@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import base.StartActivity;
 import base.admin.AdminDashboardActivity;
 
 import com.example.orvba.R;
@@ -78,24 +79,13 @@ public class LoginActivity extends AppCompatActivity {
 
     private void listener() {
 
-
         backIv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(LoginActivity.this, StartActivity.class));
                 finish();
             }
         });
-
-
-//                if (email.length() == 0) {
-//                    Toast.makeText(LoginActivity.this, "Invalid email/password", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//
-//                if (pass.length() == 0) {
-//                    Toast.makeText(LoginActivity.this, "Invalid email/password", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -148,18 +138,18 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void login(String email, String password) {
+        pb.setVisibility(View.VISIBLE);
 
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+                pb.setVisibility(View.GONE);
 
                 if (task.isSuccessful()) {
-
                     startActivity(new Intent(LoginActivity.this, AdminDashboardActivity.class));
                     finish();
 
                 } else {
-
                     Toast.makeText(LoginActivity.this, "" + task.getException(), Toast.LENGTH_SHORT).show();
 
                 }

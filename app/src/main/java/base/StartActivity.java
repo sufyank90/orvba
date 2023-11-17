@@ -13,7 +13,7 @@ import com.example.orvba.R;
 import base.auth.LoginActivity;
 import base.auth.SignUpActivity;
 
-public class startActivity extends AppCompatActivity {
+public class StartActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,7 @@ public class startActivity extends AppCompatActivity {
         loginUserButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(startActivity.this, LoginActivity.class);
+                Intent intent = new Intent(StartActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -41,7 +41,7 @@ public class startActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(startActivity.this, LoginActivity.class);
+                Intent intent = new Intent(StartActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -52,7 +52,7 @@ public class startActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(startActivity.this, SignUpActivity.class);
+                Intent intent = new Intent(StartActivity.this, SignUpActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -63,7 +63,7 @@ public class startActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(startActivity.this, SignUpActivity.class);
+                Intent intent = new Intent(StartActivity.this, SignUpActivity.class);
                 startActivity(intent);
                 finish();
             }
