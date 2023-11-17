@@ -1,4 +1,4 @@
-package base;
+package base.admin;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,14 +7,17 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import base.admin.AdminActivity;
+import base.MechanicActivity;
+import base.UserActivity;
 import base.auth.LoginActivity;
 
 import com.example.orvba.R;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MainActivity extends AppCompatActivity {
+public class AdminDashboardActivity extends AppCompatActivity {
     private Button logoutBtn;
+    private Button userButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                Intent intent = new Intent(AdminDashboardActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -38,21 +41,21 @@ public class MainActivity extends AppCompatActivity {
         userButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, UserActivity.class));
+                startActivity(new Intent(AdminDashboardActivity.this, UserActivity.class));
             }
         });
 
         adminButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, AdminActivity.class));
+                startActivity(new Intent(AdminDashboardActivity.this, AdminActivity.class));
             }
         });
 
         mechanicButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, MechanicActivity.class));
+                startActivity(new Intent(AdminDashboardActivity.this, MechanicActivity.class));
             }
         });
     }

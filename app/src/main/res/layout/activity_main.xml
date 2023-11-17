@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
+
     <Button
         android:id="@+id/logoutBtn"
         android:layout_width="wrap_content"
@@ -13,32 +13,49 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
         android:text="Logout" />
-    <RelativeLayout
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp">
+        android:layout_below="@+id/logoutBtn"
+        android:layout_marginTop="20dp">
 
-        <Button
-            android:id="@+id/userButton"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="User" />
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/adminButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/userButton"
-            android:layout_marginBottom="16dp"
-            android:text="Admin" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                tools:ignore="UselessParent">
 
-        <Button
-            android:id="@+id/mechanicButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/adminButton"
-            android:text="Mechanic" />
+                <TextView
+                    android:id="@+id/userTv"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="#eee"
+                    android:gravity="center"
+                    android:text="User"
+                    android:textSize="28sp" />
 
-    </RelativeLayout>
+                <TextView
+                    android:id="@+id/mechanicTv"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="#eee"
+                    android:gravity="center"
+                    android:text="Mechanic"
+                    android:textSize="28sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

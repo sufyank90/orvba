@@ -39,7 +39,7 @@
         <activity android:name="base.FeedbackActivity" />
         <activity android:name="base.MechanicActivity" />
         <activity android:name="base.AddNotedActivity" />
-        <activity android:name="base.MainActivity" />
+        <activity android:name="base.admin.AdminDashboardActivity" />
         <activity android:name="base.auth.SignUpActivity" />
         <activity android:name="base.auth.ForgotPasswordActivity" />
         <activity android:name="base.auth.LoginActivity" />
