@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,17 +16,20 @@ import com.example.orvba.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class AdminDashboardActivity extends AppCompatActivity {
+    private TextView userTv;
+
+    private TextView mechanicTv;
+
     private Button logoutBtn;
-    private Button userButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         logoutBtn = (Button) findViewById(R.id.logoutBtn);
-        Button userButton = findViewById(R.id.userButton);
-        Button adminButton = findViewById(R.id.adminButton);
-        Button mechanicButton = findViewById(R.id.mechanicButton);
+        userTv = findViewById(R.id.userTv);
+        mechanicTv = findViewById(R.id.mechanicTv);
 
 
         logoutBtn.setOnClickListener(new View.OnClickListener() {
@@ -38,21 +42,21 @@ public class AdminDashboardActivity extends AppCompatActivity {
             }
         });
 
-        userButton.setOnClickListener(new View.OnClickListener() {
+        userTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(AdminDashboardActivity.this, UserActivity.class));
             }
         });
 
-        adminButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(AdminDashboardActivity.this, AdminActivity.class));
-            }
-        });
+//        adminButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(AdminDashboardActivity.this, AdminActivity.class));
+//            }
+//        });
 
-        mechanicButton.setOnClickListener(new View.OnClickListener() {
+        mechanicTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(AdminDashboardActivity.this, MechanicActivity.class));
