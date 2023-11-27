@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <!--
+
+        &lt;!&ndash; Mechanic Name &ndash;&gt;
+        <TextView
+            android:id="@+id/textMechanicName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@color/customDarkerGray"
+            android:padding="25dp"
+            android:text="Mechanic Name"
+            android:textAlignment="center"
+            android:textColor="@color/customWhite"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        &lt;!&ndash; Divider below Mechanic Name &ndash;&gt;
+        <View
+            android:id="@+id/divider1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/textMechanicName"
+            android:layout_marginTop="8dp"
+            android:background="@color/customLighterGray" />
+    -->
+
+    <!-- CardView for additional details -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="14dp"
+        app:cardElevation="7dp"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp">
+
+            <!-- Shoe Image (Left Side) -->
+            <Button
+                android:id="@+id/btnBook2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imageShoe"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/custom_button_background"
+                android:text="Book"
+                android:textColor="@android:color/white" />
+
+            <ImageView
+                android:id="@+id/imageShoe"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:contentDescription="Shoe Image"
+                android:src="@drawable/baseline_perm_identity_24" />
+
+            <!-- Name -->
+            <TextView
+                android:id="@+id/textMechanicName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@id/imageShoe"
+                android:text="Mechanic Name"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <!-- Button (Right Side) -->
+            <Button
+                android:id="@+id/btnBook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imageShoe"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/custom_button_background"
+                android:text="Book"
+                android:textColor="@android:color/white" />
+
+
+            <!-- Price -->
+            <TextView
+                android:id="@+id/textMechanicPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textMechanicName"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@id/imageShoe"
+                android:text="Mechanic Price"
+                android:textColor="@color/customLighterGray"
+                android:textSize="16sp" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

@@ -53,6 +53,8 @@ public class SignUpActivity extends AppCompatActivity {
         listener();
     }
 
+    private String who = "";
+
     private void initViews() {
         pb = findViewById(R.id.pb);
         nameEt = findViewById(R.id.nameEt);
@@ -61,6 +63,7 @@ public class SignUpActivity extends AppCompatActivity {
         signupButton = findViewById(R.id.signup_button);
         loginRedirectText = findViewById(R.id.loginRedirectText);
         backIv = (ImageView) findViewById(R.id.backIv);
+        who = getIntent().getStringExtra("who");
     }
 
     private void listener() {
@@ -94,7 +97,7 @@ public class SignUpActivity extends AppCompatActivity {
                     return;
                 }
 
-                User user = new User("", name, email, password);
+                User user = new User("", name, email, password, who);
                 signup(user);
             }
         });

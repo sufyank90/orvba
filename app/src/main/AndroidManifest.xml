@@ -32,17 +32,18 @@
 
         <activity android:name="base.MechanicListActivity" />
         <activity android:name="base.PostDetailsActivity" />
-        <activity android:name="base.UserActivity" />
+        <activity android:name="base.client.UserActivityHome" />
         <activity android:name="base.ViewFeedbackActivity" />
         <activity android:name="base.admin.AdminActivity" />
         <activity android:name="base.ApproveMechanicActivity" />
         <activity android:name="base.FeedbackActivity" />
-        <activity android:name="base.MechanicActivity" />
+        <activity android:name="base.mechanic.MechanicActivity" />
         <activity android:name="base.AddNotedActivity" />
         <activity android:name="base.admin.AdminDashboardActivity" />
         <activity android:name="base.auth.SignUpActivity" />
         <activity android:name="base.auth.ForgotPasswordActivity" />
         <activity android:name="base.auth.LoginActivity" />
+        <activity android:name="base.mechanic.AddMechanicActivity" />
 
 
     </application>

@@ -27,7 +27,7 @@ public class AddNotedActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_add_note_sm);
+        setContentView(R.layout.layout_add_mechanic);
 
         myRef = FirebaseDatabase.getInstance().getReference();
 

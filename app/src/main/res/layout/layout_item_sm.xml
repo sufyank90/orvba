@@ -6,13 +6,24 @@
     android:background="@drawable/bg_all_curve"
     android:padding="16dp">
 
+    <!-- Shop Image -->
+    <ImageView
+        android:id="@+id/shopImageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/baseline_perm_identity_24" />
+
+    <!-- Shop Name -->
     <TextView
         android:id="@+id/shopNameLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/shopImageView"
+        android:layout_marginTop="16dp"
         android:text="Shop Name:"
         android:textColor="@color/black"
-        android:textSize="14sp"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
     <TextView
@@ -23,17 +34,18 @@
         android:layout_marginTop="4dp"
         android:text="Your Shop Name"
         android:textColor="@color/black"
-        android:textSize="14sp" />
+        android:textSize="16sp" />
 
+    <!-- Mechanic Name -->
     <TextView
         android:id="@+id/mechanicNameLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/shopNameTv"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="16dp"
         android:text="Mechanic Name:"
         android:textColor="@color/black"
-        android:textSize="14sp"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
     <TextView
@@ -44,17 +56,18 @@
         android:layout_marginTop="4dp"
         android:text="Your Mechanic Name"
         android:textColor="@color/black"
-        android:textSize="14sp" />
+        android:textSize="16sp" />
 
+    <!-- Number -->
     <TextView
         android:id="@+id/numberLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/mechanicNameTv"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="16dp"
         android:text="Number:"
         android:textColor="@color/black"
-        android:textSize="14sp"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
     <TextView
@@ -65,17 +78,18 @@
         android:layout_marginTop="4dp"
         android:text="Your Number"
         android:textColor="@color/black"
-        android:textSize="14sp" />
+        android:textSize="16sp" />
 
+    <!-- Address -->
     <TextView
         android:id="@+id/addressLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/numberTv"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="16dp"
         android:text="Address:"
         android:textColor="@color/black"
-        android:textSize="14sp"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
     <TextView
@@ -86,17 +100,18 @@
         android:layout_marginTop="4dp"
         android:text="Your Address"
         android:textColor="@color/black"
-        android:textSize="14sp" />
+        android:textSize="16sp" />
 
+    <!-- Note -->
     <TextView
         android:id="@+id/noteLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/addressTv"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="16dp"
         android:text="Note:"
         android:textColor="@color/black"
-        android:textSize="14sp"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
     <TextView
@@ -107,24 +122,34 @@
         android:layout_marginTop="4dp"
         android:text="This is an important note."
         android:textColor="@color/black"
-        android:textSize="14sp" />
+        android:textSize="16sp" />
 
-    <Button
-        android:id="@+id/deleteBtn"
-        android:layout_width="wrap_content"
+
+    <!-- Action Buttons -->
+    <LinearLayout
+        android:id="@+id/buttonLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/noteTv"
-        android:layout_marginTop="10dp"
-        android:text="Delete" />
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/updateBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/noteTv"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_toRightOf="@+id/deleteBtn"
-        android:text="Update" />
+        <Button
+            android:id="@+id/deleteBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/black"
+            android:text="Delete" />
+
+        <Button
+            android:id="@+id/updateBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/black"
+            android:text="Update" />
+    </LinearLayout>
 
 </RelativeLayout>

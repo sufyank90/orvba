@@ -1,0 +1,68 @@
+<!-- res/layout/mechanic_detail_layout.xml -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textMechanicDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@color/customDarkerGray"
+        android:padding="25dp"
+        android:text="Mechanic Detail"
+        android:textAlignment="center"
+        android:textColor="@color/customWhite"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <!-- Mechanic Image -->
+    <ImageView
+        android:id="@+id/detailImageShoe"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+        android:contentDescription="Mechanic Image"
+        android:src="@drawable/baseline_perm_identity_24" />
+
+    <!-- Mechanic Name -->
+    <TextView
+        android:id="@+id/detailMechanicName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/detailImageShoe"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Mechanic Name"
+        android:textColor="@color/customLighterGray"
+        android:textSize="18sp" />
+
+    <!-- Mechanic Price -->
+    <TextView
+        android:id="@+id/detailMechanicPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/detailMechanicName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text="Mechanic Price"
+        android:textColor="@color/customLighterGray"
+        android:textSize="16sp" />
+
+    <!-- Confirm Button -->
+    <Button
+        android:id="@+id/btnConfirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/detailMechanicPrice"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Confirm"
+        android:textColor="@android:color/white"
+        android:background="@color/customLighterGray" />
+
+    <!-- Add more TextViews for additional details if needed -->
+
+</RelativeLayout>

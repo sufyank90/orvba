@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.orvba.R;
 
 import base.mechanic.Mechanic;
+import base.mechanic.MechanicAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,6 @@ public class MechanicListActivity extends AppCompatActivity {
 
     private MechanicAdapter mechanicAdapter;
     private List<Mechanic> mechanicList;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,15 +34,17 @@ public class MechanicListActivity extends AppCompatActivity {
 
         // Load mechanics from the database
         loadHardcodedMechanics();
+//        loadMechanics();
+
     }
 
 
     private void loadHardcodedMechanics() {
-        mechanicList.add(new Mechanic("Muzammil Alam", "North Nazimabad 1", "Bike Machanic"));
-        mechanicList.add(new Mechanic("Syed Zakir Ali Hashmi", " Liaquatabad Town, Karachi, Karachi City, Sindh", "Car"));
-        mechanicList.add(new Mechanic("Ahmed Ali", "Location 3", "Car , Bike"));
+//        mechanicList.add(new Mechanic("Muzammil Alam", "North Nazimabad 1", "Bike Machanic"));
+//        mechanicList.add(new Mechanic("Syed Zakir Ali Hashmi", " Liaquatabad Town, Karachi, Karachi City, Sindh", "Car"));
+//        mechanicList.add(new Mechanic("Ahmed Ali", "Location 3", "Car , Bike"));
 
-        mechanicAdapter.notifyDataSetChanged();
+//        mechanicAdapter.notifyDataSetChanged();
     }
 
 //    private void loadMechanics() {
@@ -61,8 +63,10 @@ public class MechanicListActivity extends AppCompatActivity {
 //
 //            @Override
 //            public void onCancelled(@NonNull DatabaseError error) {
-//                // Handle error
+//
 //            }
+//
+//
 //        });
 //    }
 }

@@ -1,4 +1,4 @@
-package base;
+package base.mechanic;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,8 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.orvba.R;
-
-import base.mechanic.Mechanic;
 
 import java.util.List;
 
@@ -35,7 +33,7 @@ public class MechanicAdapter extends RecyclerView.Adapter<MechanicAdapter.Mechan
     public void onBindViewHolder(@NonNull MechanicViewHolder holder, int position) {
         Mechanic mechanic = mechanicList.get(position);
         holder.textMechanicName.setText(mechanic.getName());
-        holder.textMechanicLocation.setText(mechanic.getLocation());
+//        holder.textMechanicLocation.setText(mechanic.getLocation());
         holder.textMechanicService.setText(mechanic.getServices());
 
         // Add more details if needed

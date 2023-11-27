@@ -1,24 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
 
-    <Button
-        android:id="@+id/searchButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Search Mechanic"
-        android:layout_marginBottom="16dp"/>
+    <!--   <Button
+           android:id="@+id/searchButton"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginBottom="16dp"
+           android:text="Search Mechanic" />
 
-    <Button
-        android:id="@+id/postFeedbackButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Post Feedback"
-        android:layout_below="@id/searchButton"
-        android:layout_marginBottom="16dp"/>
-
+       <Button
+           android:id="@+id/postFeedbackButton"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_below="@id/searchButton"
+           android:layout_marginBottom="16dp"
+           android:text="Post Feedback" />
+   -->
     <!-- Add more UI elements based on your specific requirements -->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:itemCount="3"
+        tools:listitem="@layout/mechanic_item_2" />
+
+    <RelativeLayout
+        android:id="@+id/progressRl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.2"
+            android:background="@color/black" />
+
+        <ProgressBar
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true" />
+
+    </RelativeLayout>
 
 </RelativeLayout>

@@ -14,8 +14,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import base.MechanicListActivity;
 import base.StartActivity;
 import base.admin.AdminDashboardActivity;
+import base.client.UserActivityHome;
+import base.mechanic.MechanicActivity;
 
 import com.example.orvba.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -36,6 +39,8 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
     private ImageView backIv;
+
+    private String who = "";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -74,6 +79,8 @@ public class LoginActivity extends AppCompatActivity {
         signupRedirectText = findViewById(R.id.signupRedirectText);
         loginforgotPassTv = findViewById(R.id.forgotPassTv);
         backIv = (ImageView) findViewById(R.id.backIv);
+
+        who = getIntent().getStringExtra("who");
 
     }
 
@@ -146,12 +153,17 @@ public class LoginActivity extends AppCompatActivity {
                 pb.setVisibility(View.GONE);
 
                 if (task.isSuccessful()) {
-                    startActivity(new Intent(LoginActivity.this, AdminDashboardActivity.class));
+                    Intent intent = null;
+                    if (who.equals("user")) {
+                        intent = new Intent(LoginActivity.this, UserActivityHome.class);
+                    } else {
+                        intent = new Intent(LoginActivity.this, MechanicActivity.class);
+                    }
+                    startActivity(intent);
                     finish();
 
                 } else {
-                    Toast.makeText(LoginActivity.this, "" + task.getException(), Toast.LENGTH_SHORT).show();
-
+                    Toast.makeText(LoginActivity.this, String.valueOf(task.getException()), Toast.LENGTH_SHORT).show();
                 }
             }
         });

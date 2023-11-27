@@ -8,8 +8,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import base.MechanicActivity;
-import base.UserActivity;
+import base.mechanic.MechanicActivity;
+import base.client.UserActivityHome;
 import base.auth.LoginActivity;
 
 import com.example.orvba.R;
@@ -45,7 +45,7 @@ public class AdminDashboardActivity extends AppCompatActivity {
         userTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AdminDashboardActivity.this, UserActivity.class));
+                startActivity(new Intent(AdminDashboardActivity.this, UserActivityHome.class));
             }
         });
 

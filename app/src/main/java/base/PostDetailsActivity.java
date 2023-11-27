@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import base.auth.LoginActivity;
+import base.mechanic.AddMechanicActivity;
 
 import com.example.orvba.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -32,6 +34,7 @@ public class PostDetailsActivity extends AppCompatActivity {
     private ArrayList<MyNote> arrayList = new ArrayList<>();
     private DatabaseReference myRef;
     private Button logoutBtn;
+    private RelativeLayout progressRl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +58,7 @@ public class PostDetailsActivity extends AppCompatActivity {
     }
 
     private void initViews() {
+        progressRl = findViewById(R.id.progressRl);
         logoutBtn = findViewById(R.id.logoutBtn);
         rv = findViewById(R.id.rv);
         rv.setLayoutManager(new LinearLayoutManager(this));
@@ -63,6 +67,7 @@ public class PostDetailsActivity extends AppCompatActivity {
     }
 
     private void listener() {
+
 
         backIv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,7 +81,7 @@ public class PostDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(PostDetailsActivity.this, AddNotedActivity.class);
+                Intent intent = new Intent(PostDetailsActivity.this, AddMechanicActivity.class);
                 startActivity(intent);
 
             }
@@ -99,10 +104,12 @@ public class PostDetailsActivity extends AppCompatActivity {
     }
 
     public void getListFromFirebase() {
+        progressRl.setVisibility(View.VISIBLE);
         myRef.child("my_data").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 arrayList.clear();
+                progressRl.setVisibility(View.GONE);
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     try {
                         MyNote aa = ds.getValue(MyNote.class);
@@ -116,6 +123,7 @@ public class PostDetailsActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+                progressRl.setVisibility(View.GONE);
 
             }
         });

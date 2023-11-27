@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,20 +26,21 @@
             android:textColor="@color/black"
             android:textSize="18sp" />
     </LinearLayout>
+
     <Button
         android:id="@+id/postDetailsButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Post Details"
         android:layout_marginTop="60dp"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp"
+        android:text="Post Details" />
 
     <Button
         android:id="@+id/viewFeedbackButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="View Feedback"
-        android:layout_below="@id/postDetailsButton"/>
+        android:layout_below="@id/postDetailsButton"
+        android:text="View Feedback" />
 
     <!-- Add more UI elements based on your specific requirements -->
 

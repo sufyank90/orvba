@@ -6,15 +6,25 @@ public class User {
     private String name;
     private String email;
     private String pass;
+    private String type;
 
     public User() {
     }
 
-    public User(String id, String name, String email, String pass) {
+    public User(String id, String name, String email, String pass, String type) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.pass = pass;
+        this.type = type;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getId() {
