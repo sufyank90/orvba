@@ -3,108 +3,69 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-    <!--
 
-        &lt;!&ndash; Mechanic Name &ndash;&gt;
-        <TextView
-            android:id="@+id/textMechanicName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:background="@color/customDarkerGray"
-            android:padding="25dp"
-            android:text="Mechanic Name"
-            android:textAlignment="center"
-            android:textColor="@color/customWhite"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        &lt;!&ndash; Divider below Mechanic Name &ndash;&gt;
-        <View
-            android:id="@+id/divider1"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_below="@id/textMechanicName"
-            android:layout_marginTop="8dp"
-            android:background="@color/customLighterGray" />
-    -->
-
-    <!-- CardView for additional details -->
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="14dp"
-        app:cardElevation="7dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="4dp"
         app:cardUseCompatPadding="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp">
+            android:padding="10dp">
 
             <!-- Shoe Image (Left Side) -->
-            <Button
-                android:id="@+id/btnBook2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/imageShoe"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="20dp"
-                android:background="@drawable/custom_button_background"
-                android:text="Book"
-                android:textColor="@android:color/white" />
 
             <ImageView
-                android:id="@+id/imageShoe"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:id="@+id/iv"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="12dp"
                 android:contentDescription="Shoe Image"
                 android:src="@drawable/baseline_perm_identity_24" />
 
-            <!-- Name -->
-            <TextView
-                android:id="@+id/textMechanicName"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@id/imageShoe"
-                android:text="Mechanic Name"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toEndOf="@id/iv"
+                android:layout_toRightOf="@+id/gotoIv"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
 
-            <!-- Button (Right Side) -->
-            <Button
-                android:id="@+id/btnBook"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/imageShoe"
-                android:layout_alignParentEnd="true"
-                android:layout_centerInParent="true"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="20dp"
-                android:background="@drawable/custom_button_background"
-                android:text="Book"
-                android:textColor="@android:color/white" />
+                <!-- Name -->
+                <TextView
+                    android:id="@+id/nameTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mechanic Name"
+                    android:textColor="@color/black"
+                    android:textSize="13sp" />
 
+                <!-- Price -->
+                <TextView
+                    android:id="@+id/numberTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0342299797"
+                    android:textColor="@color/customLighterGray"
+                    android:textSize="11sp" />
+            </LinearLayout>
 
-            <!-- Price -->
-            <TextView
-                android:id="@+id/textMechanicPrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/textMechanicName"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_toEndOf="@id/imageShoe"
-                android:text="Mechanic Price"
-                android:textColor="@color/customLighterGray"
-                android:textSize="16sp" />
+            <ImageView
+                android:id="@+id/gotoIv"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:rotation="180"
+                android:src="@drawable/back" />
+
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </RelativeLayout>

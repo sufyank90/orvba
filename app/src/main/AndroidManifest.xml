@@ -34,7 +34,6 @@
         <activity android:name="base.PostDetailsActivity" />
         <activity android:name="base.client.UserActivityHome" />
         <activity android:name="base.ViewFeedbackActivity" />
-        <activity android:name="base.admin.AdminActivity" />
         <activity android:name="base.ApproveMechanicActivity" />
         <activity android:name="base.FeedbackActivity" />
         <activity android:name="base.mechanic.MechanicActivity" />
@@ -44,6 +43,7 @@
         <activity android:name="base.auth.ForgotPasswordActivity" />
         <activity android:name="base.auth.LoginActivity" />
         <activity android:name="base.mechanic.AddMechanicActivity" />
+        <activity android:name="base.mechanic.MechanicDetailActivity" />
 
 
     </application>

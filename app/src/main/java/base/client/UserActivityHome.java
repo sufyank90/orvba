@@ -6,6 +6,8 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,6 +15,7 @@ import android.content.Intent;
 import android.widget.RelativeLayout;
 
 import com.example.orvba.R;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,6 +34,7 @@ import base.mechanic.MechanicAdapter2;
 
 public class UserActivityHome extends AppCompatActivity {
     private DatabaseReference myRef;
+    private Toolbar toolbar_;
     private ArrayList<Mechanic> arrayList = new ArrayList<>();
     private RelativeLayout progressRl;
     private RecyclerView rv;
@@ -49,6 +53,10 @@ public class UserActivityHome extends AppCompatActivity {
     }
 
     private void initViews() {
+        toolbar_ = findViewById(R.id.toolbar_);
+        toolbar_.setTitle("HOME");
+        toolbar_.setSubtitle(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+
         progressRl = findViewById(R.id.progressRl);
         rv = findViewById(R.id.rv);
         rv.setLayoutManager(new LinearLayoutManager(this));

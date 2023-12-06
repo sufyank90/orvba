@@ -1,54 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
-    <LinearLayout
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:subtitleTextColor="@color/white"
+        app:titleTextColor="@color/white" />
 
-        <ImageView
-            android:id="@+id/backIv"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/back" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="Back Button"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/mechanicTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar_"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="18dp"
+        android:text="All Mechanics"
+        android:textColor="?attr/colorPrimary" />
 
-    <!--   <Button
-           android:id="@+id/searchButton"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:layout_marginBottom="16dp"
-           android:text="Search Mechanic" />
-
-       <Button
-           android:id="@+id/postFeedbackButton"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:layout_below="@id/searchButton"
-           android:layout_marginBottom="16dp"
-           android:text="Post Feedback" />
-   -->
-    <!-- Add more UI elements based on your specific requirements -->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="40dp"
+        android:layout_below="@+id/mechanicTv"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         tools:itemCount="3"
         tools:listitem="@layout/mechanic_item_2" />
 

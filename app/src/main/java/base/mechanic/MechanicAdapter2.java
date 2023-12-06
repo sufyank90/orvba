@@ -1,14 +1,17 @@
 package base.mechanic;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.orvba.R;
 
 import java.util.List;
@@ -33,11 +36,20 @@ public class MechanicAdapter2 extends RecyclerView.Adapter<MechanicAdapter2.MyVi
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Mechanic mechanic = arrayList.get(position);
-        holder.textMechanicName.setText(mechanic.getName());
-//        holder.textMechanicLocation.setText(mechanic.getLocation());
-//        holder.textMechanicService.setText("" + mechanic.getServices());
+        holder.nameTv.setText(mechanic.getName());
+        holder.numberTv.setText(mechanic.getPhone());
+        Glide.with(context).load(mechanic.getImgUrl()).circleCrop().into(holder.iv);
 
-        // Add more details if needed
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(context, MechanicDetailActivity.class);
+                intent.putExtra("", "");
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -47,15 +59,15 @@ public class MechanicAdapter2 extends RecyclerView.Adapter<MechanicAdapter2.MyVi
 
     class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView textMechanicName;
-        TextView textMechanicLocation;
-        TextView textMechanicService;
+        TextView nameTv;
+        TextView numberTv;
+        ImageView iv;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            textMechanicName = itemView.findViewById(R.id.textMechanicName);
-            textMechanicLocation = itemView.findViewById(R.id.textMechanicLocation);
-            textMechanicService = itemView.findViewById(R.id.textMechanicService);
+            nameTv = itemView.findViewById(R.id.nameTv);
+            numberTv = itemView.findViewById(R.id.numberTv);
+            iv = itemView.findViewById(R.id.iv);
         }
     }
 }
