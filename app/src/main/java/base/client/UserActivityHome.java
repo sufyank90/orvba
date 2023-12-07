@@ -1,17 +1,16 @@
 package base.client;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.example.orvba.R;
@@ -24,11 +23,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-import base.FeedbackActivity;
-import base.MechanicListActivity;
-import base.MyNote;
-import base.NoteAdapter;
-import base.PostDetailsActivity;
+import base.StartActivity;
+import base.admin.AdminDashboardActivity;
+import base.auth.LoginActivity;
 import base.mechanic.Mechanic;
 import base.mechanic.MechanicAdapter2;
 
@@ -38,6 +35,8 @@ public class UserActivityHome extends AppCompatActivity {
     private ArrayList<Mechanic> arrayList = new ArrayList<>();
     private RelativeLayout progressRl;
     private RecyclerView rv;
+    private ImageView logoutIv;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,12 +56,22 @@ public class UserActivityHome extends AppCompatActivity {
         toolbar_.setTitle("HOME");
         toolbar_.setSubtitle(FirebaseAuth.getInstance().getCurrentUser().getEmail());
 
+        logoutIv = findViewById(R.id.logoutIv);
         progressRl = findViewById(R.id.progressRl);
         rv = findViewById(R.id.rv);
         rv.setLayoutManager(new LinearLayoutManager(this));
     }
 
     private void listener() {
+        logoutIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(UserActivityHome.this, StartActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     public void getListFromFirebase() {

@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import base.StartActivity;
 import base.mechanic.MechanicActivity;
 import base.client.UserActivityHome;
 import base.auth.LoginActivity;
@@ -36,7 +37,7 @@ public class AdminDashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(AdminDashboardActivity.this, LoginActivity.class);
+                Intent intent = new Intent(AdminDashboardActivity.this, StartActivity.class);
                 startActivity(intent);
                 finish();
             }

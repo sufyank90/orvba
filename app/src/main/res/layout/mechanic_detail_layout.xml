@@ -4,18 +4,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textMechanicDetail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:background="@color/customDarkerGray"
-        android:padding="25dp"
-        android:text="Mechanic Detail"
-        android:textAlignment="center"
-        android:textColor="@color/customWhite"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+<!--    <TextView-->
+<!--        android:id="@+id/textMechanicDetail"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:background="@color/customDarkerGray"-->
+<!--        android:padding="25dp"-->
+<!--        android:text="Mechanic Detail"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textColor="@color/customWhite"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textStyle="bold" />-->
 
     <!-- Mechanic Image -->
     <ImageView

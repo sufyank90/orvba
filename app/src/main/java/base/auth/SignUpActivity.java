@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import base.StartActivity;
 import base.client.User;
 
 import com.example.orvba.R;
@@ -149,7 +150,9 @@ public class SignUpActivity extends AppCompatActivity {
 
                     // go to login page
                     mAuth.signOut();
-                    startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
+                    Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+                    intent.putExtra("who", who);
+                    startActivity(intent);
                     finish();
 
                 } else {

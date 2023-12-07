@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/logoutBtn"
         tools:itemCount="3"
-        tools:listitem="@layout/layout_item_sm"
+        tools:listitem="@layout/mechanic_item_2"
 
         />
 

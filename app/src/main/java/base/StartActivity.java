@@ -18,14 +18,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.Objects;
-
 import base.auth.LoginActivity;
 import base.auth.SignUpActivity;
 import base.client.User;
 import base.client.UserActivityHome;
-import base.mechanic.Mechanic;
-import base.mechanic.MechanicActivity;
+import base.mechanic.MechanicList;
 
 public class StartActivity extends AppCompatActivity {
     private DatabaseReference myRef;
@@ -120,8 +117,9 @@ public class StartActivity extends AppCompatActivity {
                         if (user != null && user.getEmail().equals(email) && user.getType().equals("user")) {
                             startActivity(new Intent(StartActivity.this, UserActivityHome.class));
                         } else if (user != null && user.getEmail().equals(email) && user.getType().equals("mechanic")) {
-                            startActivity(new Intent(StartActivity.this, MechanicActivity.class));
+                            startActivity(new Intent(StartActivity.this, MechanicList.class));
                         }
+                        finish();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

@@ -31,7 +31,7 @@
         <!-- android:exported="false" /> -->
 
         <activity android:name="base.MechanicListActivity" />
-        <activity android:name="base.PostDetailsActivity" />
+        <activity android:name="base.mechanic.MechanicList" />
         <activity android:name="base.client.UserActivityHome" />
         <activity android:name="base.ViewFeedbackActivity" />
         <activity android:name="base.ApproveMechanicActivity" />

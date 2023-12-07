@@ -11,7 +11,6 @@ import android.widget.ImageView;
 
 import com.example.orvba.R;
 
-import base.PostDetailsActivity;
 import base.ViewFeedbackActivity;
 
 public class MechanicActivity extends AppCompatActivity {
@@ -38,7 +37,7 @@ public class MechanicActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Implement mechanic details posting logic
-                startActivity(new Intent(MechanicActivity.this, PostDetailsActivity.class));
+                startActivity(new Intent(MechanicActivity.this, MechanicList.class));
             }
 
         });

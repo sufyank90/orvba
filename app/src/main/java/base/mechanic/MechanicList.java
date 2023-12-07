@@ -1,4 +1,4 @@
-package base;
+package base.mechanic;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,8 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import base.StartActivity;
 import base.auth.LoginActivity;
-import base.mechanic.AddMechanicActivity;
 
 import com.example.orvba.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -26,12 +26,12 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class PostDetailsActivity extends AppCompatActivity {
+public class MechanicList extends AppCompatActivity {
 
     private RecyclerView rv;
     private FloatingActionButton fabAdd;
     private ImageView backIv;
-    private ArrayList<MyNote> arrayList = new ArrayList<>();
+    private ArrayList<Mechanic> arrayList = new ArrayList<>();
     private DatabaseReference myRef;
     private Button logoutBtn;
     private RelativeLayout progressRl;
@@ -81,7 +81,7 @@ public class PostDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(PostDetailsActivity.this, AddMechanicActivity.class);
+                Intent intent = new Intent(MechanicList.this, AddMechanicActivity.class);
                 startActivity(intent);
 
             }
@@ -91,7 +91,7 @@ public class PostDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(PostDetailsActivity.this, LoginActivity.class);
+                Intent intent = new Intent(MechanicList.this, StartActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -99,20 +99,20 @@ public class PostDetailsActivity extends AppCompatActivity {
     }
 
     public void loadList() {
-        NoteAdapter adapter = new NoteAdapter(PostDetailsActivity.this, arrayList);
+        MechanicAdapter2 adapter = new MechanicAdapter2(MechanicList.this, arrayList);
         rv.setAdapter(adapter);
     }
 
     public void getListFromFirebase() {
         progressRl.setVisibility(View.VISIBLE);
-        myRef.child("my_data").addListenerForSingleValueEvent(new ValueEventListener() {
+        myRef.child("mechanics").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 arrayList.clear();
                 progressRl.setVisibility(View.GONE);
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     try {
-                        MyNote aa = ds.getValue(MyNote.class);
+                        Mechanic aa = ds.getValue(Mechanic.class);
                         arrayList.add(aa);
                     } catch (Exception e) {
                         e.printStackTrace();

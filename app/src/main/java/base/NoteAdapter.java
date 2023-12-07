@@ -17,6 +17,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
+import base.mechanic.MechanicList;
+
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.MyViewHolder> {
     private Context context;
     private ArrayList<MyNote> arrayList;
@@ -49,7 +51,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.MyViewHolder> 
                 DatabaseReference myRef = FirebaseDatabase.getInstance().getReference();
                 myRef.child("my_data").child(data.getId()).setValue(null);
                 Toast.makeText(context, "Deleted Successfully", Toast.LENGTH_SHORT).show();
-                ((PostDetailsActivity) context).getListFromFirebase();
+                ((MechanicList) context).getListFromFirebase();
             }
         });
     }
